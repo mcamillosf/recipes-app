@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import IngredientCard from '../components/IngredientCard';
@@ -7,7 +8,8 @@ import { fetchIngredients } from '../services/requests';
 function ExploreIngredients() {
   const [ingredientsList, setIngredientsList] = useState([]);
   const firstRender = useRef(true);
-  const { pathname } = window.location;
+  const pathname = useLocation().pathname;
+  // const { pathname } = window.location;
 
   let api;
   let apiString;
@@ -21,6 +23,7 @@ function ExploreIngredients() {
 
   const handleIngredientsList = async () => {
     const limit = 12;
+    console.log(pathname);
     const IngredientsList = await fetchIngredients(limit, api);
     setIngredientsList(IngredientsList);
   };
