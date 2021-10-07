@@ -1,6 +1,6 @@
 {
   "name": "recipes-app-test",
-  "homepage": "recipes-app/",
+  "homepage": "https://mcamillosf.github.io/recipes-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
