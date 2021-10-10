@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setDrinkList, setFoodList, setReloadList } from '../redux/actions';
 import { fetchIngredientsFilter } from '../services/requests';
 
 function IngredientCard({ id, name, thumb }) {
   const dispatch = useDispatch();
-  const { pathname } = window.location;
+  const pathname = useLocation().pathname;
   let api;
   let newPath;
   if (pathname.includes('comidas')) {

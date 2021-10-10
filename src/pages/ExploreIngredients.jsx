@@ -9,7 +9,6 @@ function ExploreIngredients() {
   const [ingredientsList, setIngredientsList] = useState([]);
   const firstRender = useRef(true);
   const pathname = useLocation().pathname;
-  // const { pathname } = window.location;
 
   let api;
   let apiString;
@@ -23,7 +22,6 @@ function ExploreIngredients() {
 
   const handleIngredientsList = async () => {
     const limit = 12;
-    console.log(pathname);
     const IngredientsList = await fetchIngredients(limit, api);
     setIngredientsList(IngredientsList);
   };
