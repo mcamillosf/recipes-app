@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import FavoriteButton from '../components/FavoriteButton';
 import IngredientsList from '../components/IngredientsList';
@@ -16,7 +16,6 @@ function RecipesDetails() {
   const [recipes, setRecipes] = useState([]);
   const [loadMessage, setLoadMessage] = useState(false);
   const history = useHistory();
-  const firstRender = useRef(true);
   const { id } = useParams();
   // const orig = window.location.origin;
 
@@ -71,14 +70,17 @@ function RecipesDetails() {
   };
 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
       handleFecthDetail();
       handleFecthRecipes();
-    }
-  });
+  }, [id]);
 
-  if (details.length === 0) return 'loading';
+  if ((details.length === 0 || !details) || (recipes.length === 0 || !recipes)) {
+    return 'loading';
+  }
+  if (!details[0][thumb] || !recipes[0][strRecipe]) {
+    return 'loading';
+  }
+
   const listOfIngredients = handleIngredientsList(details[0]);
 
   const player = details[0].strYoutube;
