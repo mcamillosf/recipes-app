@@ -53,6 +53,7 @@ function FavoriteButton({ details, isFavoritePage, handleReload, testid }) {
       onClick={ handleFavorite }
       src={ image }
       alt="favorite"
+      className="fav-btn"
     />
   );
 }

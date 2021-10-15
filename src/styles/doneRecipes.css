@@ -36,7 +36,7 @@
   margin: 10px;
 }
 
-.share-btn {
+.share-btn, .fav-btn {
   background-color: transparent;
   border-style: none;
   height: 18px;
