@@ -95,11 +95,19 @@
   margin-top: 10px;
 }
 
-.head-btns button, .head-btns input {
+.head-btns {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.head-btns input {
   background-color: transparent;
   border-style: none;
   margin-right: 10px;
   width: 50px;
+  margin-top: 10px;
 }
 
 .head-btns img, .head-btns input {
